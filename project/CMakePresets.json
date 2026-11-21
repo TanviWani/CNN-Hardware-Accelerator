@@ -1,0 +1,170 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 26,
+    "patch": 5
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "UNITY_ID": "tpwani2",
+        "DC_CLOCK_PER": "11.0",
+        "CLASS": "564"
+      },
+      "environment": {
+        "SRAM_PATH": "/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories"
+      }
+    },
+    {
+      "name": "run",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "-1"
+      }
+    },
+    {
+      "name": "cnn",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "-1",
+        "FULL_CNN": "ON"
+      }
+    },
+    {
+      "name": "test0",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "0"
+      }
+    },
+    {
+      "name": "test1",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "1"
+      }
+    },
+    {
+      "name": "test2",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "2"
+      }
+    },
+    {
+      "name": "test3",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "3"
+      }
+    },
+    {
+      "name": "test4",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "4"
+      }
+    },
+    {
+      "name": "test5",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "5"
+      }
+    },
+    {
+      "name": "test6",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "6"
+      }
+    },
+    {
+      "name": "test7",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "7"
+      }
+    },
+    {
+      "name": "test8",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "8"
+      }
+    },
+    {
+      "name": "test9",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "9"
+      }
+    },
+    {
+      "name": "test10",
+      "inherits": "base",
+      "cacheVariables": {
+        "TEST": "10"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "run",
+      "configurePreset": "run"
+    },
+    {
+      "name": "cnn",
+      "configurePreset": "cnn"
+    },
+    {
+      "name": "test0",
+      "configurePreset": "test0"
+    },
+    {
+      "name": "test1",
+      "configurePreset": "test1"
+    },
+    {
+      "name": "test2",
+      "configurePreset": "test2"
+    },
+    {
+      "name": "test3",
+      "configurePreset": "test3"
+    },
+    {
+      "name": "test4",
+      "configurePreset": "test4"
+    },
+    {
+      "name": "test5",
+      "configurePreset": "test5"
+    },
+    {
+      "name": "test6",
+      "configurePreset": "test6"
+    },
+    {
+      "name": "test7",
+      "configurePreset": "test7"
+    },
+    {
+      "name": "test8",
+      "configurePreset": "test8"
+    },
+    {
+      "name": "test9",
+      "configurePreset": "test9"
+    },
+    {
+      "name": "test10",
+      "configurePreset": "test10"
+    }
+  ]
+}

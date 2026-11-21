@@ -1,0 +1,6 @@
+M6_tile_drops_last_word
+files replaced: cnn_fc.sv
+test: mode=mixed seed=1 NC=10
+expected: DETECT
+
+Tile read sequence stops one word early (59 of 60 words).

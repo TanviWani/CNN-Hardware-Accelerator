@@ -1,0 +1,6 @@
+M5_weight_lane_swap
+files replaced: cnn_fc.sv
+test: mode=mixed seed=1 NC=10
+expected: DETECT
+
+Weight bytes of the last word of every row are put in the wrong lanes.

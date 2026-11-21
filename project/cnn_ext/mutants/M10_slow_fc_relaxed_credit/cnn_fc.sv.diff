@@ -1,0 +1,12 @@
+--- srcs/rtl/cnn_fc.sv
++++ mutants/M10_slow_fc_relaxed_credit/cnn_fc.sv
+@@ -176,2 +176,4 @@
+   logic td;                           // tile sum complete (tacc stable)
++  logic [9:0] idle_cnt;               // MUTANT: artificial 600-cycle FC start delay
++  always_ff @(posedge clk) idle_cnt <= (clr || st != F_IDLE) ? 10'd0 : idle_cnt + 10'd1;   // reset by clr: 4-state safe
+   always_ff @(posedge clk) begin
+@@ -182,3 +184,3 @@
+       case (st)
+-        F_IDLE: if (!done && ofull[m[0]] && wfull[tbuf]) st <= F_RUN;
++        F_IDLE: if (!done && ofull[m[0]] && wfull[tbuf] && idle_cnt >= 10'd600) st <= F_RUN;
+         F_RUN : if (w_last) st <= F_WAIT;

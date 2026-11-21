@@ -1,0 +1,7 @@
+--- srcs/rtl/dut_cnn.sv
++++ mutants/M8_credit_relaxed_normal_fc/dut_cnn.sv
+@@ -122,3 +122,3 @@
+   wire  [8:0] cdiff    = {1'b0, tile_hi} - {1'b0, tcons};
+-  wire        w_credit = cdiff[8] | (cdiff[7:0] <= 8'd1);
++  wire        w_credit = cdiff[8] | (cdiff[7:0] <= 8'd2);
+   wire        rd_ok    = (rd_kind != 2'd2) | w_credit;

@@ -1,0 +1,38 @@
+# OPTIONAL Verilator fallback - the primary flow is Questa via CMake (see README_CNN.md)
+#   (OPTIONAL Verilator fallback: make -f Makefile.verilator <target>)  run / debug / regress / mutants / feature / lint        (run from project/cnn_ext)
+NC     ?= 10
+MODE   ?= mixed
+SEED   ?= 1
+VEC    ?= vec
+OBJ    ?= obj_nc$(NC)
+RTLDIR := ../srcs/rtl
+CNN    := $(RTLDIR)/dut_cnn.sv $(RTLDIR)/cnn_fc.sv
+SIM    := sim/tb_cnn.sv sim/dram_model.sv sim/sram_models.sv
+VFLAGS := --binary --timing -Wno-fatal -Wno-lint -Wno-style --top-module tb_cnn -GNC=$(NC)
+
+.PHONY: all gen build run debug regress mutants feature lint clean
+all: run
+gen:
+	python3 scripts/gen_vectors.py --mode $(MODE) --seed $(SEED) --nc $(NC) --out $(VEC)
+build:
+	verilator $(VFLAGS) -Mdir $(OBJ) $(SIM) $(CNN) > $(OBJ).log 2>&1 || (cat $(OBJ).log; false)
+run: gen build
+	./$(OBJ)/Vtb_cnn +VEC=$(VEC)
+debug:                          # per-tile trace from the RTL ([FC ] lines)
+	verilator $(VFLAGS) -DCNN_DEBUG -Mdir $(OBJ)_dbg $(SIM) $(CNN) > $(OBJ)_dbg.log 2>&1
+	python3 scripts/gen_vectors.py --mode $(MODE) --seed $(SEED) --nc $(NC) --out $(VEC)
+	./$(OBJ)_dbg/Vtb_cnn +VEC=$(VEC)
+regress:
+	./scripts/regress_verilator.sh
+mutants:
+	./mutants/run_mutants_verilator.sh
+feature:                        # course (feature-only) mode of the wrapper vs golden feature maps
+	python3 scripts/gen_vectors.py --mode $(MODE) --seed $(SEED) --nc 10 --out $(VEC)
+	verilator --binary --timing -Wno-fatal -Wno-lint -Wno-style --top-module tb_feature -Mdir obj_feat \
+	  sim/tb_feature.sv sim/dram_model.sv sim/sram_models.sv $(RTLDIR)/dut.sv $(RTLDIR)/dut_feature.sv > obj_feat.log 2>&1 || (cat obj_feat.log; false)
+	./obj_feat/Vtb_feature +VEC=$(VEC)
+lint:
+	verilator --lint-only -Wall -Wno-DECLFILENAME -Wno-UNUSEDSIGNAL -Wno-UNUSEDPARAM --top-module dut -DFULL_CNN \
+	  $(RTLDIR)/dut.sv $(RTLDIR)/dut_cnn.sv $(RTLDIR)/dut_feature.sv $(RTLDIR)/cnn_fc.sv sim/sram_models.sv
+clean:
+	rm -rf obj_* *.log vec/* mutants/M* mutants/manifest.txt mutants/results.txt

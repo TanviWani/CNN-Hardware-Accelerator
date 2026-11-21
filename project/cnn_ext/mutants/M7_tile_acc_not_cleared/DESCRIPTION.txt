@@ -1,0 +1,6 @@
+M7_tile_acc_not_cleared
+files replaced: cnn_fc.sv
+test: mode=mixed seed=1 NC=10
+expected: DETECT
+
+Tile accumulator is not cleared at the first word of a tile (sums leak across tiles).

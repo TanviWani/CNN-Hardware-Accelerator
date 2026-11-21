@@ -1,0 +1,11 @@
+read_verilog -sv synth_open/sram_blackbox.v
+read_verilog -sv -DSYNTHESIS ../srcs/rtl/cnn_fc.sv ../srcs/rtl/dut_cnn.sv
+hierarchy -top dut_cnn
+synth -top dut_cnn -flatten
+dfflegalize -cell $_DFF_P_ 01
+dfflibmap -liberty synth_open/NangateOpenCellLibrary_typical.lib
+abc -liberty synth_open/NangateOpenCellLibrary_typical.lib -constr synth_open/abc.constr -D 1850
+hilomap -hicell LOGIC1_X1 Z -locell LOGIC0_X1 Z
+opt_clean -purge
+tee -o synth_open/out_1.85/yosys_stat.txt stat -liberty synth_open/NangateOpenCellLibrary_typical.lib -liberty synth_open/sram_macros_assumed.lib
+write_verilog -noattr -noexpr synth_open/out_1.85/dut_netlist.v

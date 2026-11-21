@@ -1,0 +1,6 @@
+M9_slow_fc_real_credit
+files replaced: cnn_fc.sv
+test: mode=mixed seed=1 NC=10
+expected: CONTROL_PASS
+
+CONTROL: FC artificially slowed (600 idle cycles per tile) with the REAL credit logic. Must still PASS (interlock throttles DRAM correctly).

@@ -1,0 +1,7 @@
+--- srcs/rtl/cnn_fc.sv
++++ mutants/M3_fc_ignores_weight_ready/cnn_fc.sv
+@@ -182,3 +182,3 @@
+       case (st)
+-        F_IDLE: if (!done && ofull[m[0]] && wfull[tbuf]) st <= F_RUN;
++        F_IDLE: if (!done && ofull[m[0]]) st <= F_RUN;
+         F_RUN : if (w_last) st <= F_WAIT;

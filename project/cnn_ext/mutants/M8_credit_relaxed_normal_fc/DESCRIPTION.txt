@@ -1,0 +1,6 @@
+M8_credit_relaxed_normal_fc
+files replaced: dut_cnn.sv
+test: mode=mixed seed=1 NC=10
+expected: SURVIVES
+
+Weight credit allows 3 tiles in flight. EXPECTED TO SURVIVE: the real FC is ~3x faster than the DRAM weight stream so the interlock never binds (equivalent behaviour).

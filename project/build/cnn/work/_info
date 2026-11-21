@@ -1,0 +1,272 @@
+m255
+K4
+z2
+Z0 !s12c _opt1
+Z1 !s99 nomlopt
+Z2 !s12c _opt
+R1
+!s12c _opt2
+R1
+R0
+R1
+R2
+R1
+!s11f vlog 2026.1 2026.01, Jan 25 2026
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 d/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn
+T_opt
+!i145 1
+!i144 0
+!s110 1794895554
+VYo<TXjY9nN3?G14EM`I0a0
+Z4 04 6 4 work tb_cnn fast 0
+=1-d404e62ac451-6afbeec0-c7bc4-f0155
+R1
+Z5 !s12f OEM100
+Z6 !s12b OEM100
+Z7 !s124 OEM100
+Z8 !s135 nogc
+o-quiet -auto_acc_if_foreign -work /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work -L /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/work -G NC=7 +acc
+Z9 tCvgOpt 0
+n@_opt
+Z10 OL;O;2026.1;84
+R3
+T_opt1
+!i145 1
+!i144 0
+!s110 1794895582
+VC0GCU3UN@D<ZQRSh6M_;60
+R4
+=1-d404e62ac451-6afbeedc-787eb-f038d
+R1
+R5
+R6
+R7
+R8
+o-quiet -auto_acc_if_foreign -work /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work -L /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/work -G NC=16 +acc
+R9
+n@_opt1
+R10
+R3
+T_opt2
+!i145 1
+!i144 0
+!s110 1794895539
+V=^OUm@Z6`jld=;`XE2amP3
+R4
+=1-d404e62ac451-6afbeeb1-95d9f-f0042
+R1
+R5
+R6
+R7
+R8
+o-quiet -auto_acc_if_foreign -work /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work -L /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/work -G NC=3 +acc
+R9
+n@_opt2
+R10
+R3
+vcnn_argmax
+Z11 2/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/dram_model.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/tb_cnn.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv
+Z12 DXx6 sv_std 3 std 0 22 @5XbY]_OacJl=`ToSm<M^0
+Z13 !s110 1794895605
+!i10b 1
+!s100 1QK6A`LSG=olId^LG^Ec?0
+I:Y[J2i:15Ed:YEI5WNAPE3
+S1
+R3
+Z14 w1794893881
+Z15 8/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv
+Z16 F/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv
+!i122 14
+L0 108 19
+Z17 VDg1SIo80bB@j0V0VzS_@n1
+Z18 OL;L;2026.1;84
+r1
+!s85 0
+31
+Z19 !s108 1794895605.000000
+!s107 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/tb_cnn.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/dram_model.sv|
+Z20 !s90 -64|-sv|-work|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work|-L|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/work|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/dram_model.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/tb_cnn.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv|
+!i113 0
+Z21 o-64 -sv -work /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work -L /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
+vcnn_fc
+R11
+R12
+R13
+!i10b 1
+!s100 ObAdT2<Xl72_AXV?I_13U2
+I14RMcj]zIn^:K_CHkh0Mi2
+S1
+R3
+R14
+R15
+R16
+!i122 14
+L0 131 136
+R17
+R18
+r1
+!s85 0
+31
+R19
+Z22 !s107 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/tb_cnn.sv|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/dram_model.sv|
+R20
+!i113 0
+R21
+R9
+vcnn_flatten
+R11
+R12
+R13
+!i10b 1
+!s100 cjkW73P5glC;551Qi4_I?3
+Ij5lzMK689[U4<YhTK6JJa1
+S1
+R3
+R14
+R15
+R16
+!i122 14
+L0 25 35
+R17
+R18
+r1
+!s85 0
+31
+R19
+R22
+R20
+!i113 0
+R21
+R9
+vcnn_mac4
+R11
+R12
+R13
+!i10b 1
+!s100 CT[7]jULWfzYbT;[;mFai1
+IeZlAG]bVnfBgi>IG=H2HQ3
+S1
+R3
+R14
+R15
+R16
+!i122 14
+L0 66 38
+R17
+R18
+r1
+!s85 0
+31
+R19
+R22
+R20
+!i113 0
+R21
+R9
+vcnn_wload
+R11
+R12
+R13
+!i10b 1
+!s100 [1L?nQ_Kih1KC:1An?hlz1
+IN^<dbAO1f]T9`kOIPD9Do0
+S1
+R3
+R14
+R15
+R16
+!i122 14
+L0 277 51
+R17
+R18
+r1
+!s85 0
+31
+R19
+R22
+R20
+!i113 0
+R21
+R9
+vdram_model
+R11
+R12
+R13
+!i10b 1
+!s100 ZE8C6gjk]enbdc9[f[2UJ1
+IY4RKN]HofDBbegHN^Kb<81
+S1
+R3
+Z23 w1794893892
+8/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/dram_model.sv
+F/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/dram_model.sv
+!i122 14
+L0 7 51
+R17
+R18
+r1
+!s85 0
+31
+R19
+R22
+R20
+!i113 0
+R21
+R9
+vdut_cnn
+R11
+R12
+R13
+!i10b 1
+!s100 _>AkJHa=YfQ4?gFkBZc6H0
+IhGIWKA^jG<maULjG2L?Zi3
+S1
+R3
+R14
+8/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv
+F/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv
+!i122 14
+L0 18 755
+R17
+R18
+r1
+!s85 0
+31
+R19
+R22
+R20
+!i113 0
+R21
+R9
+vtb_cnn
+R11
+R12
+R13
+!i10b 1
+!s100 jJ1:3ej21cz1V2>[4<GEo3
+I`DI9PJSodFYK^;nHN3Vim2
+S1
+R3
+R23
+8/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/tb_cnn.sv
+F/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/cnn_ext/sim/tb_cnn.sv
+!i122 14
+L0 13 151
+R17
+R18
+r1
+!s85 0
+31
+R19
+R22
+R20
+!i113 0
+R21
+R9

@@ -1,0 +1,112 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : dut
+Version: Y-2026.03
+Date   : Tue Nov 17 01:09:50 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: slow   Library: NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm
+Wire Load Model Mode: top
+
+  Startpoint: u_core/P5_reg[17][0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: u_core/R1_reg[14][17]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                 0.0000     0.0000
+  clock network delay (ideal)                           0.0000     0.0000
+  u_core/P5_reg[17][0]/CK (DFF_X1)                      0.0000 #   0.0000 r
+  u_core/P5_reg[17][0]/Q (DFF_X1)                       0.6376     0.6376 f
+  u_core/mult_603_2_G3_G2_G2/a[0] (dut_DW_mult_tc_18)   0.0000     0.6376 f
+  u_core/mult_603_2_G3_G2_G2/U230/ZN (INV_X1)           0.3770     1.0146 r
+  u_core/mult_603_2_G3_G2_G2/U222/ZN (NAND2_X2)         0.1847     1.1993 f
+  u_core/mult_603_2_G3_G2_G2/U232/ZN (OAI22_X2)         0.3510     1.5503 r
+  u_core/mult_603_2_G3_G2_G2/U15/CO (HA_X1)             0.3122     1.8625 r
+  u_core/mult_603_2_G3_G2_G2/U14/S (FA_X1)              0.7340     2.5965 f
+  u_core/mult_603_2_G3_G2_G2/product[2] (dut_DW_mult_tc_18)
+                                                        0.0000     2.5965 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/B[2] (dut_DW01_add_24_DW01_add_33)
+                                                        0.0000     2.5965 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U1_2/CO (FA_X1)
+                                                        0.6477     3.2443 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U1_3/CO (FA_X1)
+                                                        0.5172     3.7615 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U1_4/CO (FA_X1)
+                                                        0.5122     4.2737 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U29/ZN (NAND2_X1)
+                                                        0.2065     4.4802 r
+  add_2_root_u_core/add_603_3_G3_G2_G2/U31/ZN (NAND3_X2)
+                                                        0.1248     4.6050 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U7/ZN (NAND2_X1)
+                                                        0.1775     4.7825 r
+  add_2_root_u_core/add_603_3_G3_G2_G2/U8/ZN (NAND3_X2)
+                                                        0.1288     4.9113 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U13/ZN (NAND2_X2)
+                                                        0.1317     5.0430 r
+  add_2_root_u_core/add_603_3_G3_G2_G2/U14/ZN (NAND3_X2)
+                                                        0.1017     5.1447 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U1_8/CO (FA_X1)
+                                                        0.5024     5.6471 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U18/ZN (NAND2_X2)
+                                                        0.1701     5.8172 r
+  add_2_root_u_core/add_603_3_G3_G2_G2/U19/ZN (NAND3_X2)
+                                                        0.1091     5.9263 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U24/ZN (NAND2_X2)
+                                                        0.1302     6.0565 r
+  add_2_root_u_core/add_603_3_G3_G2_G2/U25/ZN (NAND3_X2)
+                                                        0.1017     6.1581 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U1_11/CO (FA_X1)
+                                                        0.4841     6.6423 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U1_12/CO (FA_X1)
+                                                        0.5172     7.1595 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U1_13/CO (FA_X1)
+                                                        0.5172     7.6767 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U1_14/CO (FA_X1)
+                                                        0.5122     8.1889 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U33/ZN (NAND2_X1)
+                                                        0.2068     8.3957 r
+  add_2_root_u_core/add_603_3_G3_G2_G2/U37/ZN (NAND3_X2)
+                                                        0.1133     8.5091 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/U1_16/S (FA_X1)
+                                                        0.6079     9.1169 f
+  add_2_root_u_core/add_603_3_G3_G2_G2/SUM[16] (dut_DW01_add_24_DW01_add_33)
+                                                        0.0000     9.1169 f
+  U9124/ZN (INV_X2)                                     0.0935     9.2105 r
+  U9125/ZN (INV_X2)                                     0.0663     9.2767 f
+  add_0_root_add_0_root_u_core/add_603_3_G3_G2_G2/A[16] (dut_DW01_add_22_DW01_add_31)
+                                                        0.0000     9.2767 f
+  add_0_root_add_0_root_u_core/add_603_3_G3_G2_G2/U1_16/CO (FA_X1)
+                                                        0.5587     9.8355 f
+  add_0_root_add_0_root_u_core/add_603_3_G3_G2_G2/U1_17/S (FA_X1)
+                                                        0.6379    10.4734 f
+  add_0_root_add_0_root_u_core/add_603_3_G3_G2_G2/SUM[17] (dut_DW01_add_22_DW01_add_31)
+                                                        0.0000    10.4734 f
+  U7230/ZN (NAND2_X2)                                   0.1188    10.5922 r
+  U7195/ZN (NAND2_X2)                                   0.0593    10.6515 f
+  u_core/R1_reg[14][17]/D (DFF_X2)                      0.0000    10.6515 f
+  data arrival time                                               10.6515
+
+  clock clk (rise edge)                                11.0000    11.0000
+  clock network delay (ideal)                           0.0000    11.0000
+  clock uncertainty                                    -0.0500    10.9500
+  u_core/R1_reg[14][17]/CK (DFF_X2)                     0.0000    10.9500 r
+  library setup time                                   -0.2980    10.6520
+  data required time                                              10.6520
+  --------------------------------------------------------------------------
+  data required time                                              10.6520
+  data arrival time                                              -10.6515
+  --------------------------------------------------------------------------
+  slack (MET)                                                      0.0005
+
+
+1

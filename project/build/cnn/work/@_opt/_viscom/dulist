@@ -1,0 +1,10 @@
+1 9 cnn_wload 4 fast 56 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work 1 0 0 0 142 0
+1 16 sram_128x32_1r1w 4 fast 64 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/work 1 0 131072 0 168 0
+1 15 sram_32x32_1r1w 4 fast 64 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/work 1 0 0 0 168 0
+1 11 cnn_flatten 4 fast 56 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work 1 0 0 0 97 0
+1 8 cnn_mac4 4 fast 56 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work 1 0 131072 0 221 0
+1 10 cnn_argmax 4 fast 56 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work 1 0 0 0 40 0
+1 6 cnn_fc 4 fast 56 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work 1 0 0 0 463 0
+1 7 dut_cnn 4 fast 56 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work 1 0 262144 0 5462 0
+1 10 dram_model 4 fast 56 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work 1 0 0 0 284 0
+1 6 tb_cnn 4 fast 56 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/cnn/work 1 0 131072 0 634 0

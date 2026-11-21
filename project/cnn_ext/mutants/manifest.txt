@@ -1,0 +1,10 @@
+M1_argmax_tiebreak ties 1 10 DETECT
+M2_acc_width_24 accmax 1 10 DETECT
+M3_fc_ignores_weight_ready mixed 1 10 DETECT
+M4_bias_not_added mixed 1 10 DETECT
+M5_weight_lane_swap mixed 1 10 DETECT
+M6_tile_drops_last_word mixed 1 10 DETECT
+M7_tile_acc_not_cleared mixed 1 10 DETECT
+M8_credit_relaxed_normal_fc mixed 1 10 SURVIVES
+M9_slow_fc_real_credit mixed 1 10 CONTROL_PASS
+M10_slow_fc_relaxed_credit mixed 1 10 DETECT

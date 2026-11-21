@@ -1,0 +1,4 @@
+result=PASS
+nc=10
+cycles_run1=54629
+cycles_run2=54629

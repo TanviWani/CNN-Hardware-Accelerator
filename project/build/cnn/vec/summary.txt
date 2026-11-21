@@ -1,0 +1,19 @@
+mode=ties seed=3 nc=16
+class=3
+logit[0]=100
+logit[1]=100
+logit[2]=100
+logit[3]=5000
+logit[4]=100
+logit[5]=100
+logit[6]=100
+logit[7]=100
+logit[8]=100
+logit[9]=100
+logit[10]=100
+logit[11]=100
+logit[12]=100
+logit[13]=100
+logit[14]=100
+logit[15]=5000
+feat_min=255 feat_max=255 feat_mean=255.0

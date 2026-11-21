@@ -1,0 +1,306 @@
+#---------------------------------------------------------
+# Our first Optimization 'compile' is intended to      
+# produce a design that will meet hold-time            
+# under worst-case conditions:                         
+#    - slowest process corner                        
+#    - highest operating temperature and lowest Vcc  
+#    - expected worst case clock skew                
+#---------------------------------------------------------
+#---------------------------------------------------------
+# Set the current design to the top level instance name 
+# to make sure that you are working on the right design
+# at the time of constraint setting and compilation
+#---------------------------------------------------------
+##################################################
+# Revision History: 01/27/2010, by Chanyoun Won
+#                   01/19/2011, by Won Ha Choi
+#                   01/21/2011, by Zhuo Yan
+##################################################
+#  current_design $modname
+current_design $modname
+Current design is 'dut'.
+#---------------------------------------------------------
+# Set the synthetic library variable to enable use of 
+# desigware blocks
+#---------------------------------------------------------
+set synthetic_library [list dw_foundation.sldb]
+#---------------------------------------------------------
+# Specify the worst case (slowest) libraries and       
+# slowest temperature/Vcc conditions                   
+# This would involve setting up the slow library as the 
+# target and setting the link library to the conctenation
+# of the target and the synthetic library
+#---------------------------------------------------------
+set target_library NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db
+set link_library   [concat  $target_library $synthetic_library]
+set_sram_corner SS_0p9V_100C
+#---------------------------------------------------------
+# Specify a 5000ps clock period with 50% duty cycle     
+# and a skew of 50ps                                 
+#---------------------------------------------------------
+#set CLK_PER  5
+set CLK_SKEW 0.05
+create_clock -name $clkname -period $CLK_PER -waveform "0 [expr $CLK_PER / 2]" $clkname
+set_clock_uncertainty $CLK_SKEW $clkname
+#---------------------------------------------------------
+# Now set up the 'CONSTRAINTS' on the design:          
+# 1.  How much of the clock period is lost in the      
+#     modules connected to it                          
+# 2.  What type of cells are driving the inputs        
+# 3.  What type of cells and how many (fanout) must it 
+#     be able to drive                                 
+#---------------------------------------------------------
+# Following parameters have been modified based on Nangate 45nm library (slow conditional):
+# DFF_CKQ, IP_DELAY, DFF_SETUP, OP_DELAY, WIRE_LOAD_EST
+# These values are based on simulation. Credited to: Christopher Mineo
+#---------------------------------------------------------
+# ASSUME being driven by a slowest D-flip-flop         
+# The DFF cell has a clock-Q delay of 638 ps          
+# EX: 50um M3 has R of 178.57 Ohms and C of 12.5585fF. 0.69RC = 1.55ps, and wire load
+# of 50um M3 is 13fF. Therefore, roughly 20ps wire delay is assumed.                
+# NOTE: THESE ARE INITIAL ASSUMPTIONS ONLY             
+#---------------------------------------------------------
+#
+set DFF_CKQ 0.638
+set IP_DELAY [expr 0.02 + $DFF_CKQ]
+set_input_delay $IP_DELAY -clock $clkname [remove_from_collection [all_inputs] $clkname]
+#---------------------------------------------------------
+# ASSUME this module is driving a D-flip-flip          
+# The DFF cell has a set-up time of 546 ps             
+# Same wire delay as mentioned above           
+# NOTE: THESE ARE INITIAL ASSUMPTIONS ONLY             
+#---------------------------------------------------------
+set DFF_SETUP 0.546
+set OP_DELAY [expr 0.02 + $DFF_SETUP]
+set_output_delay $OP_DELAY -clock $clkname [all_outputs]
+#---------------------------------------------------------  
+# ASSUME being driven by a D-flip-flop                 
+#---------------------------------------------------------
+set DR_CELL_NAME DFFR_X1
+set DR_CELL_PIN  Q
+set_driving_cell -lib_cell "$DR_CELL_NAME" -pin "$DR_CELL_PIN" [remove_from_collection [all_inputs] $clkname]
+Warning: Design rule attributes from the driving cell will be set on the port 'reset_n'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'start'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dout[7]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dout[6]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dout[5]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dout[4]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dout[3]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dout[2]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dout[1]'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'dout[0]'. (UID-401)
+#---------------------------------------------------------
+# ASSUME the worst case output load is                 
+# 4 D-flip-flop (D-inputs) and                         
+# 0.013 units of wiring capacitance                     
+#---------------------------------------------------------
+set PORT_LOAD_CELL  NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm/DFFR_X1/D
+set WIRE_LOAD_EST   0.013
+set FANOUT          4
+set PORT_LOAD [expr $WIRE_LOAD_EST + $FANOUT * [load_of $PORT_LOAD_CELL]]
+set_load $PORT_LOAD [all_outputs]
+#---------------------------------------------------------
+# Now set the GOALS for the compile                    
+# In most cases you want minimum area, so set the      
+# goal for maximum area to be 0                        
+#---------------------------------------------------------
+set_max_area 0
+#---------------------------------------------------------
+# This command prevents feedthroughs from input to output and avoids assign statements                 
+#--------------------------------------------------------- 
+set_fix_multiple_port_nets -all -buffer_constants [get_designs]
+#------------------------------------------------------
+# For logic reduction, I want to make one flat design    
+#                                                      
+#------------------------------------------------------
+ungroup -flatten -all
+Information: Updating graph... (UID-83)
+Warning: Design 'dut' contains 4 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+#---------------------------------------------------------
+# check the design before optimization  
+#---------------------------------------------------------
+#---------------------------------------------------------
+# check_design checks for consistency of design and issues
+# warnings and errors. An error would imply the design is 
+# not compilable. See > man check_design for more information.
+#---------------------------------------------------------
+check_design
+ 
+****************************************
+check_design summary:
+Version:     Y-2026.03
+Date:        Tue Nov 17 01:08:24 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Cells                                                              53
+    Cells do not drive (LINT-1)                                    53
+--------------------------------------------------------------------------------
+
+Warning: In design 'dut', cell 'u_core/C9968' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_217' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_216' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_215' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_214' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_213' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_212' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_211' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_210' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_209' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_208' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_207' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_206' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_205' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_204' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_203' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_202' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_201' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_200' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_199' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_198' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_197' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_195' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_185' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9587' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9578' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9577' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9572' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9566' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9564' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9559' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_182' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_181' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9513' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9485' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9473' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9470' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9469' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9463' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9451' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9424' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9408' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9379' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9369' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_164' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_wload/C700' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_wload/C699' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_wload/C694' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/C1849' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/C1810' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/u_flat/C159' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/u_flat/C158' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/u_flat/C149' does not drive any nets. (LINT-1)
+#---------------------------------------------------------
+# link performs check for presence of the design components 
+# instantiated within the design. It makes sure that all the 
+# components (either library unit or other designs within the
+# heirarchy) are present in the search path and connects all 
+# of the disparate components logically to the present design
+#---------------------------------------------------------
+link 
+
+  Linking design 'dut'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  dut                         /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/dc/dut.db
+  NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm (library)
+                              /mnt/coe/workspace/ece/ece720-common/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/liberty/520/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db
+  dw_foundation.sldb (library)
+                              /mnt/apps/public/COE/synopsys_apps/syn/Y-2026.03/libraries/syn/dw_foundation.sldb
+  sram_16x32_1rw_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1rw/sram_16x32_1rw_SS_0p9V_100C.db
+  sram_16x32_1r1w_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1r1w/sram_16x32_1r1w_SS_0p9V_100C.db
+  sram_32x32_1rw_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1rw/sram_32x32_1rw_SS_0p9V_100C.db
+  sram_32x32_1r1w_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1r1w/sram_32x32_1r1w_SS_0p9V_100C.db
+  sram_64x32_1rw_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1rw/sram_64x32_1rw_SS_0p9V_100C.db
+  sram_64x32_1r1w_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1r1w/sram_64x32_1r1w_SS_0p9V_100C.db
+  sram_128x32_1rw_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1rw/sram_128x32_1rw_SS_0p9V_100C.db
+  sram_128x32_1r1w_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1r1w/sram_128x32_1r1w_SS_0p9V_100C.db
+  sram_256x32_1rw_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1rw/sram_256x32_1rw_SS_0p9V_100C.db
+  sram_256x32_1r1w_SS_0p9V_100C_lib (library)
+                              /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1r1w/sram_256x32_1r1w_SS_0p9V_100C.db
+
+Information: Summary of messages issued during linking: (LINK-1806)
+No messages were issued during linking.
+#---------------------------------------------------------
+# check_design checks for consistency of design and issues
+# warnings and errors. An error would imply the design is 
+# not compilable. See > man check_design for more information.
+#---------------------------------------------------------
+check_design
+ 
+****************************************
+check_design summary:
+Version:     Y-2026.03
+Date:        Tue Nov 17 01:08:24 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Cells                                                              53
+    Cells do not drive (LINT-1)                                    53
+--------------------------------------------------------------------------------
+
+Warning: In design 'dut', cell 'u_core/C9968' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_217' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_216' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_215' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_214' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_213' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_212' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_211' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_210' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_209' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_208' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_207' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_206' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_205' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_204' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_203' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_202' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_201' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_200' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_199' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_198' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_197' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_195' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_185' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9587' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9578' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9577' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9572' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9566' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9564' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9559' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_182' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_181' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9513' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9485' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9473' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9470' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9469' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9463' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9451' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9424' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9408' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9379' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/C9369' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/B_164' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_wload/C700' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_wload/C699' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_wload/C694' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/C1849' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/C1810' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/u_flat/C159' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/u_flat/C158' does not drive any nets. (LINT-1)
+Warning: In design 'dut', cell 'u_core/u_fc/u_flat/C149' does not drive any nets. (LINT-1)
+1

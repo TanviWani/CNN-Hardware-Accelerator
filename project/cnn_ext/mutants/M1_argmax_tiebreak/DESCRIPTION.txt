@@ -1,0 +1,6 @@
+M1_argmax_tiebreak
+files replaced: cnn_fc.sv
+test: mode=ties seed=1 NC=10
+expected: DETECT
+
+Argmax uses >= instead of >: on equal logits the LAST class wins instead of the first.

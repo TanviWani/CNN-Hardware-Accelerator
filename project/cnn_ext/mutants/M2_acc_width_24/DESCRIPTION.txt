@@ -1,0 +1,6 @@
+M2_acc_width_24
+files replaced: dut_cnn.sv
+test: mode=accmax seed=1 NC=10
+expected: DETECT
+
+Class accumulator narrowed from 27 to 24 bits: overflows for large logits (+-58M).

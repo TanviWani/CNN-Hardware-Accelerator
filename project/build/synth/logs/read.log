@@ -1,0 +1,337 @@
+#------------------------------------------------------------
+#
+# Basic Synthesis Script (TCL format)
+#                                  
+# Revision History                
+#   1/15/03  : Author Shane T. Gehring - from class example
+#   2/09/07  : Author Zhengtao Yu      - from class example
+#   12/14/07 : Author Ravi Jenkal      - updated to 180 nm & tcl
+#
+#------------------------------------------------------------
+#---------------------------------------------------------
+# Read in Verilog file and map (synthesize) onto a generic
+# library.
+# MAKE SURE THAT YOU CORRECT ALL WARNINGS THAT APPEAR
+# during the execution of the read command are fixed 
+# or understood to have no impact.
+# ALSO CHECK your latch/flip-flop list for unintended 
+# latches                                            
+#---------------------------------------------------------
+#read_verilog -rtl $::env(RTL_FILES)
+#read_sverilog -rtl $::env(RTL_SV_FILES)
+if {[info exists ::env(RTL_SV_DEFINES)]} {
+  analyze -format sverilog -define [split $::env(RTL_SV_DEFINES)] $::env(RTL_SV_FILES)
+} else {
+  analyze -format sverilog $::env(RTL_SV_FILES)
+}
+Running PRESTO HDLC
+Compiling source file /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv
+Compiling source file /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut.sv
+Compiling source file /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv
+Compiling source file /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_feature.sv
+Presto compilation completed successfully.
+Loading db file '/mnt/coe/workspace/ece/ece720-common/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/liberty/520/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db'
+Loading db file '/mnt/apps/public/COE/synopsys_apps/syn/Y-2026.03/libraries/syn/dw_foundation.sldb'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1rw/sram_16x32_1rw_SS_0p9V_100C.db'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1r1w/sram_16x32_1r1w_SS_0p9V_100C.db'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1rw/sram_32x32_1rw_SS_0p9V_100C.db'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1r1w/sram_32x32_1r1w_SS_0p9V_100C.db'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1rw/sram_64x32_1rw_SS_0p9V_100C.db'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1r1w/sram_64x32_1r1w_SS_0p9V_100C.db'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1rw/sram_128x32_1rw_SS_0p9V_100C.db'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1r1w/sram_128x32_1r1w_SS_0p9V_100C.db'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1rw/sram_256x32_1rw_SS_0p9V_100C.db'
+Loading db file '/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1r1w/sram_256x32_1r1w_SS_0p9V_100C.db'
+elaborate $modname
+Loading db file '/mnt/apps/public/COE/synopsys_apps/syn/Y-2026.03/libraries/syn/gtech.db'
+Loading db file '/mnt/apps/public/COE/synopsys_apps/syn/Y-2026.03/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm'
+  Loading link library 'sram_16x32_1rw_SS_0p9V_100C_lib'
+  Loading link library 'sram_16x32_1r1w_SS_0p9V_100C_lib'
+  Loading link library 'sram_32x32_1rw_SS_0p9V_100C_lib'
+  Loading link library 'sram_32x32_1r1w_SS_0p9V_100C_lib'
+  Loading link library 'sram_64x32_1rw_SS_0p9V_100C_lib'
+  Loading link library 'sram_64x32_1r1w_SS_0p9V_100C_lib'
+  Loading link library 'sram_128x32_1rw_SS_0p9V_100C_lib'
+  Loading link library 'sram_128x32_1r1w_SS_0p9V_100C_lib'
+  Loading link library 'sram_256x32_1rw_SS_0p9V_100C_lib'
+  Loading link library 'sram_256x32_1r1w_SS_0p9V_100C_lib'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (dut)
+Module: dut, Ports: 55, Input: 11, Output: 44, Inout: 0
+Module: dut, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module dut report end. (ELAB-965)
+Elaborated 1 design.
+Current design is now 'dut'.
+Information: Building the design 'dut_cnn' instantiated from design 'dut' with
+	the parameters "DRAM_ADDRESS_WIDTH=32,DRAM_DQ_WIDTH=8". (HDL-193)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:113: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:133: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:157: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:165: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:164: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:293: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:327: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:467: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:469: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:537: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:563: unsigned to signed assignment occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:588: unsigned to signed assignment occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:640: unsigned to signed assignment occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:641: unsigned to signed assignment occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:741: signed to unsigned assignment occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv:740: signed to unsigned conversion occurs. (VER-318)
+
+Statistics for case statements in always block in file
+	'/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv'
+============================================================
+|    Line    |  full/ parallel  |      block location      |
+============================================================
+|    151     |    auto/auto     | always block at line 143 |
+|    392     |    auto/auto     | always block at line 388 |
+|    539     |    auto/auto     | always block at line 538 |
+|    685     |    auto/auto     | always block at line 675 |
+============================================================
+
+Inferred memory devices in process in routine 'dut_cnn_DRAM_ADDRESS_WIDTH32_DRAM_DQ_WIDTH8' in file
+	 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/dut_cnn.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|     start_d_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  |  94  |
+|       rj_reg        | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 143  |
+|       dst_reg       | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 143  |
+|       bph_reg       | Flip-flop |   3   |  Y  | N  | None  | None  | N  | 143  |
+|     ready_r_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 143  |
+|       rph_reg       | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 143  |
+|      rdd_q_reg      | Flip-flop |   6   |  Y  | N  | None  | None  | N  | 179  |
+|       rdk_reg       | Flip-flop |  14   |  Y  | N  | None  | None  | N  | 186  |
+|     cap_ctr_reg     | Flip-flop |   3   |  Y  | N  | None  | None  | N  | 201  |
+|     cap_run_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 201  |
+|    kind_cur_reg     | Flip-flop |   2   |  Y  | N  | None  | None  | N  | 201  |
+|       cl_reg        | Flip-flop |  32   |  Y  | N  | None  | None  | N  | 218  |
+|     half_ev_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 224  |
+|    half_sel_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 224  |
+|      cap_u_reg      | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 230  |
+|     ks_csb0_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 247  |
+|     is_csb0_reg     | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 247  |
+|      is_a0_reg      | Flip-flop |   5   |  Y  | N  | None  | None  | N  | 247  |
+|      wr_d_reg       | Flip-flop |  32   |  Y  | N  | None  | None  | N  | 247  |
+|      ks_a0_reg      | Flip-flop |   5   |  Y  | N  | None  | None  | N  | 247  |
+|   rows_loaded_reg   | Flip-flop |   6   |  Y  | N  | None  | None  | N  | 270  |
+|      kok_p_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  | 270  |
+|      row_p_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  | 270  |
+|     kern_ok_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 270  |
+|     nb_off_reg      | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 285  |
+|     rd_cnt_reg      | Flip-flop |  12   |  Y  | N  | None  | None  | N  | 285  |
+|     rd_addr_reg     | Flip-flop |  32   |  Y  | N  | None  | None  | N  | 285  |
+|     nb_tile_reg     | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 285  |
+|      waddr_reg      | Flip-flop |  32   |  Y  | N  | None  | None  | N  | 304  |
+|      cmd_r_reg      | Flip-flop |   2   |  Y  | N  | None  | None  | N  | 304  |
+|     addr_r_reg      | Flip-flop |  32   |  Y  | N  | None  | None  | N  | 304  |
+|    rd_cmd_v_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 304  |
+|     bias_b_reg      | Flip-flop |  160  |  Y  | N  | None  | None  | N  | 323  |
+|      bidx_reg       | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 323  |
+|      cdone_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  | 388  |
+|       cst_reg       | Flip-flop |   7   |  Y  | N  | None  | None  | N  | 388  |
+|        k_reg        | Flip-flop |   3   |  Y  | N  | None  | None  | N  | 388  |
+|        p_reg        | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 388  |
+|        q_reg        | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 388  |
+|       pc_reg        | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 388  |
+|     is_csb1_reg     | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 470  |
+|      is_a1_reg      | Flip-flop |  40   |  Y  | N  | None  | None  | N  | 470  |
+|     ks_csb1_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 478  |
+|      ks_a1_reg      | Flip-flop |   5   |  Y  | N  | None  | None  | N  | 478  |
+|       t7_reg        | Flip-flop |   1   |  N  | N  | None  | None  | N  | 486  |
+|       t1_reg        | Flip-flop |  15   |  Y  | N  | None  | None  | N  | 486  |
+|       t2_reg        | Flip-flop |  15   |  Y  | N  | None  | None  | N  | 486  |
+|       t3_reg        | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 486  |
+|       t4_reg        | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 486  |
+|       t5_reg        | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 486  |
+|       t6_reg        | Flip-flop |   2   |  Y  | N  | None  | None  | N  | 486  |
+|       W0_reg        | Flip-flop |  160  |  Y  | N  | None  | None  | N  | 546  |
+|       W1_reg        | Flip-flop |  160  |  Y  | N  | None  | None  | N  | 546  |
+|        H_reg        | Flip-flop |  160  |  Y  | N  | None  | None  | N  | 546  |
+|       P5_reg        | Flip-flop |  200  |  Y  | N  | None  | None  | N  | 562  |
+|       KN_reg        | Flip-flop |  128  |  Y  | N  | None  | None  | N  | 576  |
+|        K_reg        | Flip-flop |  128  |  Y  | N  | None  | None  | N  | 584  |
+|       R1_reg        | Flip-flop |  288  |  Y  | N  | None  | None  | N  | 601  |
+|       Cc_reg        | Flip-flop |  80   |  Y  | N  | None  | None  | N  | 621  |
+|      S_reg_reg      | Flip-flop |  22   |  Y  | N  | None  | None  | N  | 648  |
+|      y_reg_reg      | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 660  |
+|     fs_buf0_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 675  |
+|     pk_cnt_reg      | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 675  |
+|     obuf_w_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  | 675  |
+|     os_csb0_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 675  |
+|       fs0_reg       | Flip-flop |   1   |  N  | N  | None  | None  | N  | 675  |
+|       fs1_reg       | Flip-flop |   1   |  N  | N  | None  | None  | N  | 675  |
+|     fs_buf1_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 675  |
+|      os_a0_reg      | Flip-flop |   7   |  Y  | N  | None  | None  | N  | 675  |
+|       pl0_reg       | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 675  |
+|       pl1_reg       | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 675  |
+|       pl2_reg       | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 675  |
+|      os_d0_reg      | Flip-flop |  32   |  Y  | N  | None  | None  | N  | 675  |
+|      full_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  | 709  |
+|       rb_reg        | Flip-flop |  64   |  Y  | N  | None  | None  | N  | 745  |
+|      oe_r_reg       | Flip-flop |   1   |  N  | N  | None  | None  | N  | 745  |
+|      din_r_reg      | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 745  |
+==================================================================================
+Presto compilation completed successfully. (dut_cnn_DRAM_ADDRESS_WIDTH32_DRAM_DQ_WIDTH8)
+Module: dut_cnn_DRAM_ADDRESS_WIDTH32_DRAM_DQ_WIDTH8, Ports: 55, Input: 11, Output: 44, Inout: 0
+Module: dut_cnn_DRAM_ADDRESS_WIDTH32_DRAM_DQ_WIDTH8, Registers: 2052, Async set/reset: 0, Sync set/reset: 0
+Information: Module dut_cnn_DRAM_ADDRESS_WIDTH32_DRAM_DQ_WIDTH8 report end. (ELAB-965)
+Information: Building the design 'cnn_wload'. (HDL-193)
+
+Inferred memory devices in process in routine 'cnn_wload' in file
+	 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|       col_reg       | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 299  |
+|       row_reg       | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 299  |
+|       wwa_reg       | Flip-flop |   6   |  Y  | N  | None  | None  | N  | 299  |
+|      wbuf_reg       | Flip-flop |   1   |  N  | N  | None  | None  | N  | 299  |
+|     ws_csb0_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 299  |
+|      wset_reg       | Flip-flop |   1   |  N  | N  | None  | None  | N  | 299  |
+|      wfull_reg      | Flip-flop |   2   |  Y  | N  | None  | None  | N  | 299  |
+|      wacc_reg       | Flip-flop |  24   |  Y  | N  | None  | None  | N  | 299  |
+|      ws_a0_reg      | Flip-flop |   7   |  Y  | N  | None  | None  | N  | 299  |
+|      ws_d0_reg      | Flip-flop |  32   |  Y  | N  | None  | None  | N  | 299  |
+|     wset_b_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  | 299  |
+==================================================================================
+Presto compilation completed successfully. (cnn_wload)
+Module: cnn_wload, Ports: 55, Input: 13, Output: 42, Inout: 0
+Module: cnn_wload, Registers: 83, Async set/reset: 0, Sync set/reset: 0
+Information: Module cnn_wload report end. (ELAB-965)
+Information: Building the design 'cnn_fc' instantiated from design 'dut_cnn_DRAM_ADDRESS_WIDTH32_DRAM_DQ_WIDTH8' with
+	the parameters "NC=10,ACC_W=27". (HDL-193)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv:221: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv:230: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv:236: signed to unsigned conversion occurs. (VER-318)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv:263: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block in file
+	'/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv'
+============================================================
+|    Line    |  full/ parallel  |      block location      |
+============================================================
+|    182     |    auto/auto     | always block at line 177 |
+============================================================
+
+Inferred memory devices in process in routine 'cnn_fc_NC10_ACC_W27' in file
+	 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|      tcons_reg      | Flip-flop |   8   |  Y  | N  | None  | None  | N  | 177  |
+|       st_reg        | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 177  |
+|      done_reg       | Flip-flop |   1   |  N  | N  | None  | None  | N  | 177  |
+|       vb_reg        | Flip-flop |   1   |  N  | N  | None  | None  | N  | 197  |
+|     os_csb1_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 197  |
+|     ws_csb1_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  | 197  |
+|       va_reg        | Flip-flop |   1   |  N  | N  | None  | None  | N  | 197  |
+|      ws_a1_reg      | Flip-flop |   7   |  Y  | N  | None  | None  | N  | 197  |
+|      os_a1_reg      | Flip-flop |   7   |  Y  | N  | None  | None  | N  | 197  |
+|       ta_reg        | Flip-flop |   2   |  Y  | N  | None  | None  | N  | 197  |
+|       tb__reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  | 197  |
+|      tacc_reg       | Flip-flop |  24   |  Y  | N  | None  | None  | N  | 216  |
+|       td_reg        | Flip-flop |   1   |  N  | N  | None  | None  | N  | 216  |
+|      base_reg       | Flip-flop |  27   |  Y  | N  | None  | None  | N  | 235  |
+|      cmp_v_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  | 239  |
+|     logit_r_reg     | Flip-flop |  27   |  Y  | N  | None  | None  | N  | 239  |
+|       acc_reg       | Flip-flop |  270  |  Y  | N  | None  | None  | N  | 239  |
+==================================================================================
+Presto compilation completed successfully. (cnn_fc_NC10_ACC_W27)
+Module: cnn_fc_NC10_ACC_W27, Ports: 533, Input: 230, Output: 303, Inout: 0
+Module: cnn_fc_NC10_ACC_W27, Registers: 385, Async set/reset: 0, Sync set/reset: 0
+Information: Module cnn_fc_NC10_ACC_W27 report end. (ELAB-965)
+Information: Building the design 'cnn_flatten' instantiated from design 'cnn_fc_NC10_ACC_W27' with
+	the parameters "NC=10". (HDL-193)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv:44: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process in routine 'cnn_flatten_NC10' in file
+	 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|      tbuf_reg       | Flip-flop |   1   |  N  | N  | None  | None  | N  |  47  |
+|        m_reg        | Flip-flop |   3   |  Y  | N  | None  | None  | N  |  47  |
+|        c_reg        | Flip-flop |   4   |  Y  | N  | None  | None  | N  |  47  |
+|        w_reg        | Flip-flop |   6   |  Y  | N  | None  | None  | N  |  47  |
+==================================================================================
+Presto compilation completed successfully. (cnn_flatten_NC10)
+Module: cnn_flatten_NC10, Ports: 36, Input: 4, Output: 32, Inout: 0
+Module: cnn_flatten_NC10, Registers: 14, Async set/reset: 0, Sync set/reset: 0
+Information: Module cnn_flatten_NC10 report end. (ELAB-965)
+Information: Building the design 'cnn_mac4'. (HDL-193)
+Warning:  /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv:98: unsigned to signed assignment occurs. (VER-318)
+
+Inferred memory devices in process in routine 'cnn_mac4' in file
+	 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|      v_out_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  |  93  |
+|       v1_reg        | Flip-flop |   1   |  N  | N  | None  | None  | N  |  93  |
+|       v2_reg        | Flip-flop |   1   |  N  | N  | None  | None  | N  |  93  |
+|       v3_reg        | Flip-flop |   1   |  N  | N  | None  | None  | N  |  93  |
+|       t1_reg        | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  93  |
+|       t2_reg        | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  93  |
+|       t3_reg        | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  93  |
+|      t_out_reg      | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  93  |
+|       wd_reg        | Flip-flop |  32   |  Y  | N  | None  | None  | N  |  93  |
+|       fd_reg        | Flip-flop |  32   |  Y  | N  | None  | None  | N  |  93  |
+|       pr_reg        | Flip-flop |  64   |  Y  | N  | None  | None  | N  |  93  |
+|       s01_reg       | Flip-flop |  17   |  Y  | N  | None  | None  | N  |  93  |
+|       s23_reg       | Flip-flop |  17   |  Y  | N  | None  | None  | N  |  93  |
+|      s_out_reg      | Flip-flop |  18   |  Y  | N  | None  | None  | N  |  93  |
+==================================================================================
+Presto compilation completed successfully. (cnn_mac4)
+Module: cnn_mac4, Ports: 90, Input: 69, Output: 21, Inout: 0
+Module: cnn_mac4, Registers: 192, Async set/reset: 0, Sync set/reset: 0
+Information: Module cnn_mac4 report end. (ELAB-965)
+Information: Building the design 'cnn_argmax' instantiated from design 'cnn_fc_NC10_ACC_W27' with
+	the parameters "W=27,IW=4". (HDL-193)
+
+Inferred memory devices in process in routine 'cnn_argmax_W27_IW4' in file
+	 /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/srcs/rtl/cnn_fc.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|    best_idx_reg     | Flip-flop |   4   |  Y  | N  | None  | None  | N  | 120  |
+|    best_val_reg     | Flip-flop |  27   |  Y  | N  | None  | None  | N  | 120  |
+==================================================================================
+Presto compilation completed successfully. (cnn_argmax_W27_IW4)
+Module: cnn_argmax_W27_IW4, Ports: 65, Input: 34, Output: 31, Inout: 0
+Module: cnn_argmax_W27_IW4, Registers: 31, Async set/reset: 0, Sync set/reset: 0
+Information: Module cnn_argmax_W27_IW4 report end. (ELAB-965)
+if {[info exists ::env(SRAM_PATH)] && $::env(SRAM_PATH) ne ""} {
+  link
+  set sram_cells [get_cells -hierarchical -filter "ref_name =~ sram_*x32_1r*"]
+  if {[sizeof_collection $sram_cells] == 0} {
+    error "SRAM DUT has no linked SRAM macro instances"
+  }
+  set_dont_touch $sram_cells true
+}
+
+  Linking design 'dut'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (7 designs)               /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/dc/dut.db, etc
+  NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm (library) /mnt/coe/workspace/ece/ece720-common/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/liberty/520/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db
+  dw_foundation.sldb (library) /mnt/apps/public/COE/synopsys_apps/syn/Y-2026.03/libraries/syn/dw_foundation.sldb
+  sram_16x32_1rw_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1rw/sram_16x32_1rw_SS_0p9V_100C.db
+  sram_16x32_1r1w_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1r1w/sram_16x32_1r1w_SS_0p9V_100C.db
+  sram_32x32_1rw_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1rw/sram_32x32_1rw_SS_0p9V_100C.db
+  sram_32x32_1r1w_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1r1w/sram_32x32_1r1w_SS_0p9V_100C.db
+  sram_64x32_1rw_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1rw/sram_64x32_1rw_SS_0p9V_100C.db
+  sram_64x32_1r1w_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1r1w/sram_64x32_1r1w_SS_0p9V_100C.db
+  sram_128x32_1rw_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1rw/sram_128x32_1rw_SS_0p9V_100C.db
+  sram_128x32_1r1w_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1r1w/sram_128x32_1r1w_SS_0p9V_100C.db
+  sram_256x32_1rw_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1rw/sram_256x32_1rw_SS_0p9V_100C.db
+  sram_256x32_1r1w_SS_0p9V_100C_lib (library) /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1r1w/sram_256x32_1r1w_SS_0p9V_100C.db
+
+Information: Summary of messages issued during linking: (LINK-1806)
+No messages were issued during linking.
+1

@@ -1,0 +1,6 @@
+M10_slow_fc_relaxed_credit
+files replaced: cnn_fc.sv, dut_cnn.sv
+test: mode=mixed seed=1 NC=10
+expected: DETECT
+
+Slow FC (as M9) AND relaxed credit: the DRAM overwrites unconsumed weight tiles. Proves the interlock is necessary.

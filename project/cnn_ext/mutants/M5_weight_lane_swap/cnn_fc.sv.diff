@@ -1,0 +1,7 @@
+--- srcs/rtl/cnn_fc.sv
++++ mutants/M5_weight_lane_swap/cnn_fc.sv
+@@ -296,3 +296,3 @@
+   wire word_done = (col[1:0] == 2'd3) | last_col;
+-  wire [31:0] word_nx = last_col ? {8'h00, bd, wacc[15:0]} : {bd, wacc[23:0]};
++  wire [31:0] word_nx = last_col ? {8'h00, wacc[7:0], bd, wacc[15:8]} : {bd, wacc[23:0]};
+ 

@@ -1,0 +1,7 @@
+--- srcs/rtl/cnn_fc.sv
++++ mutants/M1_argmax_tiebreak/cnn_fc.sv
+@@ -120,3 +120,3 @@
+   always_ff @(posedge clk) begin
+-    if (v && (first || (val > best_val))) begin
++    if (v && (first || (val >= best_val))) begin
+       best_val <= val;

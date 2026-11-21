@@ -1,0 +1,7 @@
+--- srcs/rtl/cnn_fc.sv
++++ mutants/M7_tile_acc_not_cleared/cnn_fc.sv
+@@ -220,3 +220,3 @@
+       if (mv) begin
+-        tacc <= (mt[0] ? 24'sd0 : tacc) + {{6{ms[17]}}, ms};
++        tacc <= (1'b0 ? 24'sd0 : tacc) + {{6{ms[17]}}, ms};
+         td   <= mt[1];

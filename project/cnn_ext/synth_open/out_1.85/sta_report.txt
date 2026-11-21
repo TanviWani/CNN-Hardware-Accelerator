@@ -1,0 +1,100 @@
+=== SETUP (max) worst paths ===
+Startpoint: _90471_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _89206_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+   Delay     Time   Description
+-----------------------------------------------------------
+   0.000    0.000   clock clk (rise edge)
+   0.000    0.000   clock network delay (ideal)
+   0.000    0.000 ^ _90471_/CK (DFF_X1)
+   0.087    0.087 ^ _90471_/Q (DFF_X1)
+   0.051    0.139 ^ _52476_/Z (BUF_X1)
+   0.055    0.193 ^ _53010_/Z (BUF_X1)
+   0.060    0.253 ^ _53011_/Z (BUF_X1)
+   0.027    0.280 v _61803_/ZN (AOI22_X1)
+   0.090    0.370 v _61805_/ZN (OR3_X1)
+   0.040    0.410 v _61806_/ZN (AND3_X1)
+   0.082    0.492 v _61809_/ZN (OR3_X1)
+   0.040    0.532 v _61810_/ZN (AND3_X1)
+   0.082    0.613 v _61813_/ZN (OR3_X1)
+   0.040    0.653 v _61814_/ZN (AND3_X1)
+   0.082    0.735 v _61817_/ZN (OR3_X1)
+   0.040    0.775 v _61818_/ZN (AND3_X1)
+   0.082    0.856 v _61821_/ZN (OR3_X1)
+   0.040    0.896 v _61822_/ZN (AND3_X1)
+   0.077    0.974 v _61825_/ZN (OR3_X1)
+   0.044    1.017 v _61827_/ZN (AND3_X1)
+   0.098    1.116 v _61828_/ZN (OR3_X1)
+   0.046    1.161 ^ _61839_/ZN (AOI22_X1)
+   0.024    1.186 v _61841_/ZN (OAI21_X1)
+   0.049    1.235 ^ _61970_/ZN (AOI21_X1)
+   0.031    1.265 v _62121_/ZN (OAI21_X1)
+   0.050    1.316 ^ _62298_/ZN (AOI21_X1)
+   0.029    1.345 v _62476_/ZN (OAI21_X1)
+   0.050    1.395 ^ _62651_/ZN (AOI21_X1)
+   0.029    1.424 v _62827_/ZN (OAI21_X1)
+   0.050    1.474 ^ _62992_/ZN (AOI21_X1)
+   0.029    1.503 v _63146_/ZN (OAI21_X1)
+   0.050    1.553 ^ _63273_/ZN (AOI21_X1)
+   0.029    1.582 v _63386_/ZN (OAI21_X1)
+   0.039    1.621 ^ _63482_/ZN (AOI21_X1)
+   0.036    1.657 ^ _63548_/ZN (AND2_X1)
+   0.012    1.669 v _63550_/ZN (OAI21_X1)
+   0.000    1.669 v _89206_/D (DFF_X1)
+            1.669   data arrival time
+
+   1.850    1.850   clock clk (rise edge)
+   0.000    1.850   clock network delay (ideal)
+  -0.100    1.750   clock uncertainty
+   0.000    1.750   clock reconvergence pessimism
+            1.750 ^ _89206_/CK (DFF_X1)
+  -0.041    1.709   library setup time
+            1.709   data required time
+-----------------------------------------------------------
+            1.709   data required time
+           -1.669   data arrival time
+-----------------------------------------------------------
+            0.040   slack (MET)
+
+
+=== HOLD (min) worst paths ===
+Startpoint: _90869_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _90871_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+   Delay     Time   Description
+-----------------------------------------------------------
+   0.000    0.000   clock clk (rise edge)
+   0.000    0.000   clock network delay (ideal)
+   0.000    0.000 ^ _90869_/CK (DFF_X1)
+   0.078    0.078 v _90869_/Q (DFF_X1)
+   0.000    0.078 v _90871_/D (DFF_X1)
+            0.078   data arrival time
+
+   0.000    0.000   clock clk (rise edge)
+   0.000    0.000   clock network delay (ideal)
+   0.050    0.050   clock uncertainty
+   0.000    0.050   clock reconvergence pessimism
+            0.050 ^ _90871_/CK (DFF_X1)
+   0.002    0.052   library hold time
+            0.052   data required time
+-----------------------------------------------------------
+            0.052   data required time
+           -0.078   data arrival time
+-----------------------------------------------------------
+            0.026   slack (MET)
+
+
+=== SUMMARY ===
+worst slack max 0.040
+worst slack min 0.026
+tns max 0.000
+wns max 0.000
+clk period_min = 1.81 fmax = 552.58
+Group                                  Slack
+--------------------------------------------
+No paths found.
+

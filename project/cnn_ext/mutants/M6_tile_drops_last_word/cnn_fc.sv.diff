@@ -1,0 +1,7 @@
+--- srcs/rtl/cnn_fc.sv
++++ mutants/M6_tile_drops_last_word/cnn_fc.sv
+@@ -183,3 +183,3 @@
+         F_IDLE: if (!done && ofull[m[0]] && wfull[tbuf]) st <= F_RUN;
+-        F_RUN : if (w_last) st <= F_WAIT;
++        F_RUN : if (w == 6'd58) st <= F_WAIT;
+         F_WAIT: if (td) st <= F_CMP;

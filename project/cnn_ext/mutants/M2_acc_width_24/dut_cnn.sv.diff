@@ -1,0 +1,7 @@
+--- srcs/rtl/dut_cnn.sv
++++ mutants/M2_acc_width_24/dut_cnn.sv
+@@ -53,3 +53,3 @@
+   localparam int NRB    = 1 + (NC + 1) / 2;           // result bursts
+-  localparam int ACC_W  = 27;                         // |logit| <= 1800*255*128 + 2^15 < 2^26
++  localparam int ACC_W  = 24;                         // |logit| <= 1800*255*128 + 2^15 < 2^26
+   localparam int RDW    = 12;

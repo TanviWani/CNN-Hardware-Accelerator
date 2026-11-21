@@ -1,0 +1,21 @@
+BEGIN 1:dram_model:fast:work
+    mem :  1:tb_cnn:fast:work
+    n_wr :  1:tb_cnn:fast:work
+    n_rd :  1:tb_cnn:fast:work
+    errors :  1:tb_cnn:fast:work
+END 
+BEGIN 1:cnn_fc:fast:work
+    st :  1:tb_cnn:fast:work
+END 
+BEGIN 1:dut_cnn:fast:work
+    full :  1:tb_cnn:fast:work
+    dst :  1:tb_cnn:fast:work
+    os_csb0 :  1:tb_cnn:fast:work
+    os_a0 :  1:tb_cnn:fast:work
+    tcons :  1:tb_cnn:fast:work
+    wfull :  1:tb_cnn:fast:work
+    rd_cnt :  1:tb_cnn:fast:work
+    fc_done :  1:tb_cnn:fast:work
+    os_d0 :  1:tb_cnn:fast:work
+    fc_pred :  1:tb_cnn:fast:work
+END 

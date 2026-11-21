@@ -1,0 +1,6 @@
+M4_bias_not_added
+files replaced: cnn_fc.sv
+test: mode=mixed seed=1 NC=10
+expected: DETECT
+
+Bias is replaced by 0 on the first map.

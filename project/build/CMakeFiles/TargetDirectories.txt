@@ -1,0 +1,17 @@
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/compress.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/memory_interface.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vlog-sram.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vlog-dut.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vsim-dut.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vsim-dut-c.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vlog-golden.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vsim-golden.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vsim-golden-c.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/cnn-vectors.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vlog-cnn.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vsim-cnn.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/vsim-cnn-c.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/synth.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/cnn-report.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/edit_cache.dir
+/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/CMakeFiles/rebuild_cache.dir

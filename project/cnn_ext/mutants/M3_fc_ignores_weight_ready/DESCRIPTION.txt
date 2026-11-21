@@ -1,0 +1,6 @@
+M3_fc_ignores_weight_ready
+files replaced: cnn_fc.sv
+test: mode=mixed seed=1 NC=10
+expected: DETECT
+
+FC starts a tile before the weight tile is completely loaded.

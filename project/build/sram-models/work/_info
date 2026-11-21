@@ -1,0 +1,261 @@
+m255
+K4
+z2
+!s11f vlog 2026.1 2026.01, Jan 25 2026
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models
+vsram_128x32_1r1w
+Z1 2/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1r1w/sram_16x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1rw/sram_16x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1r1w/sram_32x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1rw/sram_32x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1r1w/sram_64x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1rw/sram_64x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1r1w/sram_128x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1rw/sram_128x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1r1w/sram_256x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1rw/sram_256x32_1rw.v
+Z2 DXx6 sv_std 3 std 0 22 @5XbY]_OacJl=`ToSm<M^0
+Z3 !s110 1794895404
+!i10b 1
+!s100 USST=z6FZUYbzQWNQ=A4>1
+I46?0G6z]?J7^@^1H6HHmW0
+S1
+R0
+Z4 w1791939714
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1r1w/sram_128x32_1r1w.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1r1w/sram_128x32_1r1w.v
+!i122 0
+Z5 L0 5 83
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2026.1;84
+r1
+!s85 0
+31
+Z8 !s108 1794895403.000000
+!s107 /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1rw/sram_256x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1r1w/sram_256x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1rw/sram_128x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1r1w/sram_128x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1rw/sram_64x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1r1w/sram_64x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1rw/sram_32x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1r1w/sram_32x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1rw/sram_16x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1r1w/sram_16x32_1r1w.v|
+Z9 !s90 -64|-sv|-timescale=1ns/1ps|-work|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/work|-modelsimini|/mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/modelsim.ini|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1r1w/sram_16x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1rw/sram_16x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1r1w/sram_32x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1rw/sram_32x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1r1w/sram_64x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1rw/sram_64x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1r1w/sram_128x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1rw/sram_128x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1r1w/sram_256x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1rw/sram_256x32_1rw.v|
+!i113 0
+Z10 o-64 -sv -timescale=1ns/1ps -work /mnt/ncsudrive/t/tpwani2/Cnn_Full/project/build/sram-models/work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 tCvgOpt 0
+vsram_128x32_1rw
+R1
+R2
+R3
+!i10b 1
+!s100 SDbDEPXc@7_<V`@Wm3WYj3
+If=_nXX17ab][bh8Zc46kQ0
+S1
+R0
+Z12 w1791939713
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1rw/sram_128x32_1rw.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1rw/sram_128x32_1rw.v
+!i122 0
+Z13 L0 5 69
+R6
+R7
+r1
+!s85 0
+31
+R8
+Z14 !s107 /mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1rw/sram_256x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1r1w/sram_256x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1rw/sram_128x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_128x32_1r1w/sram_128x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1rw/sram_64x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1r1w/sram_64x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1rw/sram_32x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1r1w/sram_32x32_1r1w.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1rw/sram_16x32_1rw.v|/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1r1w/sram_16x32_1r1w.v|
+R9
+!i113 0
+R10
+R11
+vsram_16x32_1r1w
+R1
+R2
+R3
+!i10b 1
+!s100 WRccn]RnL>E[dQC?`BaY50
+I`WWLQnaZDo5?cEGGH`OP51
+S1
+R0
+w1791939710
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1r1w/sram_16x32_1r1w.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1r1w/sram_16x32_1r1w.v
+!i122 0
+R5
+R6
+R7
+r1
+!s85 0
+31
+R8
+R14
+R9
+!i113 0
+R10
+R11
+vsram_16x32_1rw
+R1
+R2
+R3
+!i10b 1
+!s100 n1RJIf^;335ef^]LjAP2B0
+IYk@=OG`FX7`6FUUCA=RC92
+S1
+R0
+R4
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1rw/sram_16x32_1rw.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_16x32_1rw/sram_16x32_1rw.v
+!i122 0
+R13
+R6
+R7
+r1
+!s85 0
+31
+R8
+R14
+R9
+!i113 0
+R10
+R11
+vsram_256x32_1r1w
+R1
+R2
+R3
+!i10b 1
+!s100 ^W;Ll]MeH=LYR]G>9oeJQ0
+IemE[6LLk?bbC[[9?Za_UW1
+S1
+R0
+Z15 w1791939711
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1r1w/sram_256x32_1r1w.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1r1w/sram_256x32_1r1w.v
+!i122 0
+R5
+R6
+R7
+r1
+!s85 0
+31
+R8
+R14
+R9
+!i113 0
+R10
+R11
+vsram_256x32_1rw
+R1
+R2
+R3
+!i10b 1
+!s100 _T:Ae?5>ffjN5c3o;]k3S2
+IEVP<hjN9^<j5B8mgHcTZX1
+S1
+R0
+Z16 w1791939715
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1rw/sram_256x32_1rw.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_256x32_1rw/sram_256x32_1rw.v
+!i122 0
+R13
+R6
+R7
+r1
+!s85 0
+31
+R8
+R14
+R9
+!i113 0
+R10
+R11
+vsram_32x32_1r1w
+R1
+R2
+R3
+!i10b 1
+!s100 ^;^D8dCTKKUD2La6[L?Le0
+Ikea@l_b0<HU^ARU4YZQ4[2
+S1
+R0
+R4
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1r1w/sram_32x32_1r1w.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1r1w/sram_32x32_1r1w.v
+!i122 0
+R5
+R6
+R7
+r1
+!s85 0
+31
+R8
+R14
+R9
+!i113 0
+R10
+R11
+vsram_32x32_1rw
+R1
+R2
+R3
+!i10b 1
+!s100 oR:2:XmnRnWODa>15PSY=0
+IdQi9OOa9aF4zIaPgl1NNd2
+S1
+R0
+R12
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1rw/sram_32x32_1rw.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_32x32_1rw/sram_32x32_1rw.v
+!i122 0
+R13
+R6
+R7
+r1
+!s85 0
+31
+R8
+R14
+R9
+!i113 0
+R10
+R11
+vsram_64x32_1r1w
+R1
+R2
+R3
+!i10b 1
+!s100 E2ZOJFGe7Cf4Sd]J:U>lQ2
+IHW3`aAQI8[oQG`ef2mD]S2
+S1
+R0
+R15
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1r1w/sram_64x32_1r1w.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1r1w/sram_64x32_1r1w.v
+!i122 0
+R5
+R6
+R7
+r1
+!s85 0
+31
+R8
+R14
+R9
+!i113 0
+R10
+R11
+vsram_64x32_1rw
+R1
+R2
+R3
+!i10b 1
+!s100 3lDAI2Vh<Q<bW`GYjZQ0P2
+I2h2JEHU]?0@;K<Zma5;V^3
+S1
+R0
+R16
+8/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1rw/sram_64x32_1rw.v
+F/mnt/coe/workspace/ece/ece564-common/OpenRAM/memories/sram_64x32_1rw/sram_64x32_1rw.v
+!i122 0
+R13
+R6
+R7
+r1
+!s85 0
+31
+R8
+R14
+R9
+!i113 0
+R10
+R11

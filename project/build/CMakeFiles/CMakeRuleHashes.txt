@@ -1,0 +1,18 @@
+# Hashes of file build rules.
+057cdf8fe5b859e833f2d4137ce6a017 CMakeFiles/cnn-report
+b810a619c1bf375e67f4b79db12a8ef9 CMakeFiles/cnn-vectors
+44034eb10dcf04035beed32138a6ff56 CMakeFiles/compress
+f1d7a05a2ff3174feacce52ec41057af CMakeFiles/memory_interface
+22a4e5495bf273167914f4b71fcb5aaa CMakeFiles/synth
+f98c855cb2423f44994191deac8f7d23 CMakeFiles/vlog-cnn
+12add11d3f7b5a9fd17e48e20de02b9f CMakeFiles/vlog-dut
+613aaa056b7271fa1db900f93e044deb CMakeFiles/vlog-golden
+f1d7a05a2ff3174feacce52ec41057af CMakeFiles/vlog-sram
+bba34d59bf60e2c58eede45f5e3f0b68 CMakeFiles/vsim-cnn
+ac3b807f56aa995e084456d8ddce5c57 CMakeFiles/vsim-cnn-c
+f055fe3d81317600c7ebb8628e8792e7 CMakeFiles/vsim-dut
+d9a04f3d6a35d749f5c4666185b49ec6 CMakeFiles/vsim-dut-c
+81b73632afb610b49ed191163ac77cd6 CMakeFiles/vsim-golden
+6212950442bcef96d5adc25fe6442b72 CMakeFiles/vsim-golden-c
+2236864f8f9744c91559eff7f9241408 memory_interface.so
+c5916e97070f10e71c199f1dc1c15234 sram-models/work/.stamp
