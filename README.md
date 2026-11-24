@@ -32,6 +32,8 @@ The accelerator is organized into the following major stages:
 
 The FC stage uses a two-tile ping-pong weight buffer to overlap weight loading and computation, reducing the need to store the complete weight matrix on-chip.
 
+![Block Diagram](images/block_diagram.png)
+
 ## Repository Structure
 
 ```text
